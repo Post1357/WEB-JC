@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JC | Panel de Control Seguro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false">
+
+    <div id="lockScreen">
+        <div class="lock-box">
+            <div class="scan-line"></div>
+            <div class="logo">SISTEMA<span>_JC</span></div>
+            <div class="input-wrap">
+                <input type="password" id="passInput" placeholder="ACCESS_TOKEN">
+            </div>
+            <button class="btn btn-blue" style="width: 100%; padding: 12px;" onclick="checkPass()">EJECUTAR_LOGIN</button>
+        </div>
+    </div>
+
+    <div id="mainUI" style="display: none;">
+        <header>
+            <div class="logo">JC<span>.DEV</span></div>
+            <div id="timer" style="font-family: var(--font-mono); color: var(--accent2);">00:00:00</div>
+        </header>
+
+        <nav>
+            <button class="tab-btn active" onclick="showTab('apps', this)">🚀 APPS BÁSICAS</button>
+            <button class="tab-btn" onclick="showTab('tools', this)">🛠️ HERRAMIENTAS DIGITALES</button>
+            <button class="tab-btn" onclick="showTab('sys', this)">💻 SISTEMA</button>
+        </nav>
+
+        <main class="content">
+            
+            <section id="apps" class="tab-panel active">
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-title"><div class="dot online"></div> WINRAR 7.0</div>
+                        <div class="card-desc">Gestión avanzada de archivos comprimidos.</div>
+                        <div class="actions">
+                            <button class="btn btn-blue" onclick="window.open('https://winrar.es/descargas', '_blank')">DESCARGAR</button>
+                            <button class="btn btn-red" onclick="this.closest('.card').style.opacity='0.2'">OCULTAR</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title"><div class="dot online"></div> ZOOM</div>
+                        <div class="card-desc">Cliente para videoconferencias y soporte remoto.</div>
+                        <div class="actions">
+                            <button class="btn btn-blue" onclick="window.open('https://zoom.us/client/latest/ZoomInstaller.exe', '_blank')">DESCARGAR</button>
+                            <button class="btn btn-red" onclick="this.closest('.card').style.opacity='0.2'">OCULTAR</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title"><div class="dot online"></div> VLC PLAYER</div>
+                        <div class="card-desc">Reproductor multimedia de código abierto.</div>
+                        <div class="actions">
+                            <button class="btn btn-blue" onclick="window.open('https://images.videolan.org/vlc/index.es.html', '_blank')">DESCARGAR</button>
+                            <button class="btn btn-red" onclick="this.closest('.card').style.opacity='0.2'">OCULTAR</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tools" class="tab-panel">
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-title" style="color: var(--accent2);"><div class="dot online" style="background: var(--accent2);"></div> CryptoIDESetup</div>
+                        <div class="card-desc">Instalador base para entorno criptográfico IDE.</div>
+                        <div class="actions">
+                            <button class="btn btn-blue" onclick="alert('https://drive.google.com/file/d/1e1SC2PAO4JlfcMo6fSyO8LVAIsuR4Uef/view?usp=sharing', '_blank')">DESCARGAR</button>
+                            <button class="btn btn-red" onclick="this.closest('.card').style.opacity='0.2'">OCULTAR</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title" style="color: var(--accent2);"><div class="dot online" style="background: var(--accent2);"></div> CryptoIDEAdmin</div>
+                        <div class="card-desc">Consola de administración para certificados.</div>
+                        <div class="actions">
+                            <button class="btn btn-blue" onclick="alert('https://drive.google.com/file/d/10KL8xrXVDEYbD50NeOwSCTIA3Ieup4fb/view?usp=sharing', '_blank')">DESCARGAR</button>
+                            <button class="btn btn-red" onclick="this.closest('.card').style.opacity='0.2'">OCULTAR</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title" style="color: var(--accent2);"><div class="dot online" style="background: var(--accent2);"></div> CryptoIDEInit</div>
+                        <div class="card-desc">Módulo de inicialización de tokens.</div>
+                        <div class="actions">
+                            <button class="btn btn-blue" onclick="alert('https://drive.google.com/file/d/18700sXbrOsmOnraNiSYcGzO4WjpLdmXo/view?usp=sharing', '_blank')">DESCARGAR</button>
+                            <button class="btn btn-red" onclick="this.closest('.card').style.opacity='0.2'">OCULTAR</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title" style="color: var(--accent2);"><div class="dot online" style="background: var(--accent2);"></div> Bit4id Driver</div>
+                        <div class="card-desc">Drivers oficiales para lectores de tarjetas inteligentes.</div>
+                        <div class="actions">
+                            <button class="btn btn-blue" onclick="alert('Iniciando descarga de Drivers...')">DESCARGAR</button>
+                            <button class="btn btn-red" onclick="this.closest('.card').style.opacity='0.2'">OCULTAR</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sys" class="tab-panel">
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-title"><div class="dot online"></div> HARDWARE DETECTED</div>
+                        <div class="sys-details" id="hw-info">Analizando hardware...</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title" style="color: var(--accent2);"><div class="dot online" style="background: var(--accent2);"></div> RED / CONEXIÓN</div>
+                        <div class="sys-details" id="net-info">
+                            <div>IP PÚBLICA: <span id="ip-addr">Cargando...</span></div>
+                            <div>PROVEEDOR: <span id="isp-name">Cargando...</span></div>
+                            <div>UBICACIÓN: <span id="geo-loc">Cargando...</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
